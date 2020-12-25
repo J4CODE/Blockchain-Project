@@ -1,0 +1,20 @@
+# Blockchain Project - First code set.
+# index: A unique number tracking the position of every block in the entire blockchain.
+# timestamp: Records the time of occurrence of each completed transaction.
+# data: Data shown in reference to the completed transactions, such as sender details, recipient’s details, and quantity transacted.
+# blockHash: Points to preceding block in the blockchain, which is important in maintaining the blockchain’s integrity.
+# The computeHash method is to calculate the hash of the block based on its properties, given in the data below.
+
+const SHA256 = require('crypto-js/sha256');
+class mainBlock {
+  constructor(index, timestamp, data, blockHash = " ") {
+    this.index = index;
+    this.timestamp = timestamp;
+    this.data = data;
+    this.blockHash = blockHash;
+    this.hash = this.computeHash();
+  }
+  computeHash() {
+    return SHA256(this.index + this.blockHash + this.timestamp + JSON.stringify(this.data)).toString();
+  }
+}
