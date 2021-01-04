@@ -35,3 +35,8 @@ class CryptoBlock{
         this.blockchain.push(newBlock);
     }
 }
+
+let jCoin = new CryptoBlockchain();
+jCoin.addNewBlock(new CryptoBlock(1, "07/17/2020", {sender: "Frank Johnson", recipient: "Katherein Gains", quantity: 510}));
+jCoin.addNewBlock(new CryptoBlock(2, "07/21/2020", {sender: "Stacey Meninglow", recipient: "Mark Templeton", quantity: 250}) );
+console.log(JSON.stringify(jCoin, null, 4));
