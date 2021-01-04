@@ -40,3 +40,17 @@ let jCoin = new CryptoBlockchain();
 jCoin.addNewBlock(new CryptoBlock(1, "07/17/2020", {sender: "Frank Johnson", recipient: "Katherein Gains", quantity: 510}));
 jCoin.addNewBlock(new CryptoBlock(2, "07/21/2020", {sender: "Stacey Meninglow", recipient: "Mark Templeton", quantity: 250}) );
 console.log(JSON.stringify(jCoin, null, 4));
+
+checkChainValidity(){
+        for(let i = 1; i < this.blockchain.length; i++){
+            const currentBlock = this.blockchain[i];
+            const precedingBlock= this.blockchain[i-1];
+
+          if(currentBlock.hash !== currentBlock.computeHash()){
+              return false;
+          }
+          if(currentBlock.precedingHash !== precedingBlock.hash)
+            return false;
+        }
+        return true;
+    }
