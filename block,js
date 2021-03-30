@@ -5,6 +5,22 @@
 # blockHash: Points to preceding block in the blockchain, which is important in maintaining the blockchain’s integrity.
 # The computeHash method is to calculate the hash of the block based on its properties, given in the data below.
 
+# Example Blockchain - Block Structure
+# Decide and begin/build what will be the first items needed in your blockchain structure.
+# Only code the most important items needeed.
+# For example:
+# Begin:
+# class Block {
+#     constructor(index, previousHash, timestamp, data, hash) {
+#       this.index = index;
+#       this.previousHash = previousHash.toString();
+#       this.timestamp = timestamp;
+#       this.data = data;
+#       this.hash = hash.toString();
+#   }
+# }
+# End
+
 const SHA256 = require('crypto-js/sha256');
 class mainBlock {
   constructor(index, timestamp, data, blockHash = " ") {
